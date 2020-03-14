@@ -17,6 +17,9 @@ dev_build:
 dev_logs:
 	@docker-compose -f docker-compose-dev.yml logs
 
+dev_logs_select:
+	@docker-compose -f docker-compose-dev.yml logs $(log)
+
 dev_down:
 	@docker-compose -f docker-compose-dev.yml down
 

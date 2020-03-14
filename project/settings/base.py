@@ -159,4 +159,24 @@ DEFAULT_FROM_EMAIL = 'noreply@email.com'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+CELERY_BROKER_URL = 'redis://redis:6379'
+CELERY_RESULT_BACKEND = 'redis://redis:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
 
+
+# An example below how to set up a scheduled task
+# The tasks code could live in a tasks.py in the app folder of choice
+# If using tasks in the project folder I explicitly import it
+# Couldn't get it to work otherwise
+
+# from celery.schedules import crontab
+# import project.tasks
+#
+# CELERY_BEAT_SCHEDULE = {
+#     'my_scheduled_task': {
+#         'task': 'project.tasks.my_scheduled_task',
+#         'schedule': crontab(minute='*/2'),
+#     },
+# }

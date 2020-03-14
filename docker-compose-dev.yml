@@ -1,6 +1,14 @@
 version: '3.7'
 
 services:
+  db:
+    image: postgres:11
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    ports:
+      - 5432:5432
+  redis:
+    image: redis:alpine
   web:
     env_file:
       - .env
@@ -12,11 +20,24 @@ services:
       - 8000:8000
     depends_on:
       - db
-  db:
-    image: postgres:11
+      - redis
+  celery:
+    env_file: .env
+    build: .
+    command: celery -A project worker -l info
     volumes:
-      - postgres_data:/var/lib/postgresql/data/
-    ports:
-      - 5432:5432
+      - .:/code
+    depends_on:
+      - db
+      - redis
+  celery-beat:
+    env_file: .env
+    build: .
+    command: celery -A project beat -l info
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+      - redis
 volumes:
   postgres_data:

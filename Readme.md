@@ -1,4 +1,4 @@
-# Django Template
+# Django Template with Celery and Redis
 
 A project template to use with Django projects. Includes:
 
@@ -11,9 +11,14 @@ A project template to use with Django projects. Includes:
 - basic tests for pages and users
 - different settings files for development and production
 
-The biggest part of this project I got from the ["Django for professionals"](https://djangoforprofessionals.com) book, and built on what I learned going through its chapters. My thought was to have something to use as a baseline when building my own Django apps.
+Also there is the following containerized features:
+- Celery
+- Redis
+- Flower (for monitoring celery tasks)
 
-I could have used the [DjangoX](https://github.com/wsvincent/djangox) repo to get a ready made template. But I wanted to build it my self and choose what should be in it. Also I've built this to learn Django better myself.  
+> Note: The Celery, Redis and Flower features are currently just implemented in docker-compose-dev.yml. There would probably be other settings for these in a production scenario than covered in this template.
+
+This template is based on my previous [Django Template](https://github.com/Joeriksson/django-template), but also adds Celery and Redis for doing e.g. scheduled tasks, async tasks. It also uses [Tailwind CSS](https://tailwindcss.com) instead of Bootstrap.
 
 ## Production and development settings
 
@@ -23,7 +28,7 @@ The setting file are split up in production and a development settings files. Al
 
 1. Clone this repository
 
-` https://github.com/Joeriksson/django-template.git`
+` https://github.com/Joeriksson/django-template-2`
 
 2. Install [Docker Desktop](https://www.docker.com/products/docker-desktop) to be able to use the docker environment.
 
