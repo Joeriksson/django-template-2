@@ -14,9 +14,8 @@ A project template to use with Django projects. Includes:
 Also there is the following containerized features:
 - Celery
 - Redis
-- Flower (for monitoring celery tasks)
 
-> Note: The Celery, Redis and Flower features are currently just implemented in docker-compose-dev.yml. There would probably be other settings for these in a production scenario than covered in this template.
+> Note: The Celery and Redis features are currently just implemented in docker-compose-dev.yml. There would probably be other settings for these in a production scenario than covered in this template.
 
 This template is based on my previous [Django Template](https://github.com/Joeriksson/django-template), but also adds Celery and Redis for doing e.g. scheduled tasks, async tasks. It also uses [Tailwind CSS](https://tailwindcss.com) instead of Bootstrap.
 
