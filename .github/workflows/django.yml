@@ -29,4 +29,6 @@ jobs:
       env:
         SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
       run: |
+        python manage.py migrate
+        python manage.py collectstatic
         python manage.py test
