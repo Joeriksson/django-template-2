@@ -28,6 +28,7 @@ jobs:
     - name: Run Tests
       env:
         SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        ENVIRONMENT: CI
       run: |
         python manage.py migrate
         python manage.py collectstatic
