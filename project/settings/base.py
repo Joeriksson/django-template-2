@@ -65,9 +65,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'project.wsgi.application'
-print('##############################')
-print(os.environ.get('ENVIRONMENT'))
-print('##############################')
+
 if os.environ.get('ENVIRONMENT') == 'CI':
 
     #Database
